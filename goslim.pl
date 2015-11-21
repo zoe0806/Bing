@@ -94,10 +94,9 @@ my $total;
 my $j=0;
 for(my $i = 0; $i < @lines; $i++){
      my @fields = split(/\s+/,$lines[$i]);
-
  
 #导出到文件 
-	 my $sth = $dbh->prepare("SELECT goslim_ID  from tbl_goslim where input_accession like '%@fields%'");
+my $sth = $dbh->prepare("SELECT goslim_ID  from tbl_goslim where input_accession like '%@fields%'");
 if($sth ne ""){$j++;}
 $sth->execute();
 while(my @elem = $sth->fetchrow)
